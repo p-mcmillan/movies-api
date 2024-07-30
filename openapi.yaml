@@ -1,0 +1,199 @@
+openapi: 3.0.0
+info:
+  title: Movies API
+  version: 1.0.0
+  description: API for managing movie entries. Fetches and saves movie data from OMDB if not found locally.
+servers:
+  - url: http://localhost:3000
+paths:
+  /movies:
+    get:
+      summary: List all movies
+      responses:
+        '200':
+          description: A list of movies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+    post:
+      summary: Create a new movie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMovieDto'
+      responses:
+        '200':
+          description: The created movie
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+  /movies/{Title}:
+    get:
+      summary: Get a movie by title
+      parameters:
+        - name: Title
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The movie details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+  /movies/{imdbID}:
+    patch:
+      summary: Update an existing movie
+      parameters:
+        - name: imdbID
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMovieDto'
+      responses:
+        '200':
+          description: The updated movie
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+    delete:
+      summary: Delete a movie
+      parameters:
+        - name: imdbID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success status
+          content:
+            application/json:
+              schema:
+                type: boolean
+    patch:
+      summary: Update likes or dislikes
+      parameters:
+        - name: imdbID
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isLike:
+                  type: boolean
+      responses:
+        '200':
+          description: Success status
+          content:
+            application/json:
+              schema:
+                type: boolean
+components:
+  schemas:
+    Movie:
+      type: object
+      properties:
+        imdbID:
+          type: string
+        Title:
+          type: string
+        Year:
+          type: string
+        Rated:
+          type: string
+        Released:
+          type: string
+        Runtime:
+          type: string
+        Actors:
+          type: string
+        Plot:
+          type: string
+        imdbRating:
+          type: string
+        likes:
+          type: integer
+        dislikes:
+          type: integer
+        created_at:
+          type: string
+        updated_at:
+          type: string
+    CreateMovieDto:
+      type: object
+      properties:
+        imdbID:
+          type: string
+        Title:
+          type: string
+        Year:
+          type: string
+        Rated:
+          type: string
+        Released:
+          type: string
+        Runtime:
+          type: string
+        Plot:
+          type: string
+        imdbRating:
+          type: string
+        imdbVotes:
+          type: string
+        likes:
+          type: integer
+        dislikes:
+          type: integer
+        created_at:
+          type: string
+        updated_at:
+          type: string
+    UpdateMovieDto:
+      type: object
+      properties:
+        Title:
+          type: string
+        Year:
+          type: string
+        Rated:
+          type: string
+        Released:
+          type: string
+        Runtime:
+          type: string
+        Plot:
+          type: string
+        imdbRating:
+          type: string
+        imdbVotes:
+          type: string
+        likes:
+          type: integer
+        dislikes:
+          type: integer
+        created_at:
+          type: string
+        updated_at:
+          type: string
