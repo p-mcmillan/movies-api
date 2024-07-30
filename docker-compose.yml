@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  backend:
+    build: .
+    container_name: movies_api
+    environment:
+      - TZ=America/Los_Angeles
+    restart: always
+    ports:
+      - '4000:4000'
+    networks:
+      - movies_api
+    volumes:
+      - .:/usr/src/app
+
+networks:
+  movies_api:
+    driver: bridge

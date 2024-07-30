@@ -125,6 +125,3 @@ The API follows the OpenAPI (Swagger) specification. You can use tools like Swag
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-# movies-api
-# movies-api
-# movies-api
