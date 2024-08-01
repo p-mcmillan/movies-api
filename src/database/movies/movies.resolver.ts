@@ -28,9 +28,8 @@ export class MoviesResolver {
 
     return this.moviesService.createMovie(createMovieInput);
   }
-  //https://stackoverflow.com/questions/13730861/why-cant-i-declare-local-variables-and-functions-within-a-typescript-class
+
   private generateRandomImdbID(): string {
-    // generate random number to sorta match imdbID from the OMDB API
     const randomNumber = Math.floor(10000000000 + Math.random() * 90000000000);
     return `tt${randomNumber}`;
   }
