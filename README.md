@@ -19,7 +19,7 @@ If a movie is not found in the local database, the API will automatically fetch 
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js (v20 or higher)
 - PostgreSQL or another database compatible with Knex.js
 - API key for OMDB API (optional, if using an external data source). Obtain your API key from [OMDB API](https://www.omdbapi.com/).
 - `ca.pem` file from your cloud server (needed for secure database connection)
