@@ -107,7 +107,7 @@ You can test the API using Postman or any other API testing tool. For Postman, y
 
 ### Postman Collection
 
-1. Download the [Postman collection]:
+1. Download the Postman collection:
  ```bash
    apollo schema:download --endpoint=http://localhost:4000/graphql movies-api.json
    ```
