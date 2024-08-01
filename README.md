@@ -29,8 +29,8 @@ If a movie is not found in the local database, the API will automatically fetch 
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-repo/your-project.git
-   cd your-project
+   git clone git@github.com:p-mcmillan/movies-api.git
+   cd movies-api
    ```
 
 2. **Install Dependencies**
@@ -107,14 +107,17 @@ You can test the API using Postman or any other API testing tool. For Postman, y
 
 ### Postman Collection
 
-1. Download the [Postman collection](path/to/your/collection.json).
+1. Download the [Postman collection]:
+ ```bash
+   apollo schema:download --endpoint=http://localhost:4000/graphql movies-api.json
+   ```
 2. Open Postman.
 3. Go to "Import" and select the downloaded collection file.
 4. You can now test the API endpoints directly from Postman.
 
 ### API Documentation
 
-The API follows the OpenAPI (Swagger) specification. You can use tools like Swagger UI or Redoc to view and interact with the API documentation. The OpenAPI specification file is available [here](path/to/openapi.yaml).
+The API follows the OpenAPI (Swagger) specification. You can use tools like Swagger UI or Redoc to view and interact with the API documentation. The OpenAPI specification file is available [here](openapi.yaml).
 
 ## Troubleshooting
 
