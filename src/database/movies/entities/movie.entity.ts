@@ -16,7 +16,16 @@ export class Movie {
   Runtime: string;
 
   @Field()
+  Genre: string; //added
+
+  @Field()
+  Actors: string; //added
+
+  @Field()
   Plot: string;
+
+  @Field()
+  Poster: string; //added
 
   @Field()
   imdbRating: string;

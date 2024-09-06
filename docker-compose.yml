@@ -15,6 +15,27 @@ services:
     volumes:
       - .:/usr/src/app
 
+  nginx:
+    container_name: movies_api_proxy
+    build: ./nginx
+    environment:
+      - TZ=America/Los_Angeles
+    ports:
+      - '4466:80'
+    restart: always
+    networks:
+      - movies_api
+
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: movies_api_tunnel
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    restart: always
+    networks:
+      - movies_api
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+
 networks:
   movies_api:
     driver: bridge

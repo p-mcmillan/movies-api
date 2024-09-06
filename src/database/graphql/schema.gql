@@ -2,56 +2,65 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Movie {
-  Title: String!
-  Year: String!
-  Rated: String!
-  Runtime: String!
-  Plot: String!
-  imdbRating: String!
-  imdbID: String!
-  likes: Int!
-  dislikes: Int!
+input CreateMovieDto {
+  Actors: String
+  Genre: String
+  Plot: String
+  Poster: String
+  Rated: String
+  Runtime: String
+  Title: String
+  Year: String
   created_at: String
+  dislikes: Int
+  imdbID: String
+  imdbRating: String
+  likes: Int
   updated_at: String
 }
 
-type Query {
-  listAllMovies: [Movie!]!
-  getMovieByTitle(title: String!): Movie
+type Movie {
+  Actors: String!
+  Genre: String!
+  Plot: String!
+  Poster: String!
+  Rated: String!
+  Runtime: String!
+  Title: String!
+  Year: String!
+  created_at: String
+  dislikes: Int!
+  imdbID: String!
+  imdbRating: String!
+  likes: Int!
+  updated_at: String
 }
 
 type Mutation {
   createMovie(createMovieInput: CreateMovieDto!): Movie!
-  updateMovie(imdbID: String!, updateMovieInput: UpdateMovieDto!): Movie
   deleteMovie(imdbID: String!): Boolean!
   updateLikeDislike(imdbID: String!, isLike: Boolean!): Boolean!
+  updateMovie(imdbID: String!, updateMovieInput: UpdateMovieDto!): Movie
 }
 
-input CreateMovieDto {
-  Title: String
-  Year: String
-  Rated: String
-  Runtime: String
-  Plot: String
-  imdbRating: String
-  imdbID: String
-  likes: Int
-  dislikes: Int
-  created_at: String
-  updated_at: String
+type Query {
+  getMovieByTitle(title: String!): Movie
+  listAllMovies: [Movie!]!
 }
 
 input UpdateMovieDto {
-  Title: String
-  Year: String
+  Actors: String
+  Genre: String
+  Plot: String
+  Poster: String
   Rated: String
   Runtime: String
-  Plot: String
-  imdbRating: String
-  imdbID: String
-  likes: Int
-  dislikes: Int
+  Title: String
+  Year: String
   created_at: String
+  dislikes: Int
+  imdbID: String
+  imdbRating: String
+  likes: Int
   updated_at: String
 }

@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   description: API for managing movie entries. Fetches and saves movie data from OMDB if not found locally.
 servers:
-  - url: http://localhost:3000
+  - url: http://localhost:4001/graphql
 paths:
   /movies:
     get:

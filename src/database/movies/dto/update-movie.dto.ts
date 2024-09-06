@@ -29,7 +29,22 @@ export class UpdateMovieDto extends PartialType(CreateMovieDto) {
   @Field({ nullable: true })
   @IsOptional()
   @IsString()
+  Genre?: string; //added
+
+  @Field({ nullable: true })
+  @IsOptional()
+  @IsString()
+  Actors?: string; //added
+
+  @Field({ nullable: true })
+  @IsOptional()
+  @IsString()
   Plot?: string;
+
+  @Field({ nullable: true })
+  @IsOptional()
+  @IsString()
+  Poster?: string; //added
 
   @Field({ nullable: true })
   @IsOptional()

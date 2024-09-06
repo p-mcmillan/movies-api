@@ -85,15 +85,16 @@ If a movie is not found in the local database, the API will automatically fetch 
 
 ```graphql
 type Movie {
-  imdbID: String!
   Title: String!
   Year: String!
   Rated: String!
-  Released: String!
   Runtime: String!
+  Genre: String!
   Actors: String!
   Plot: String!
+  Poster: String!
   imdbRating: String!
+  imdbID: String!
   likes: Int!
   dislikes: Int!
   created_at: String
@@ -108,9 +109,11 @@ You can test the API using Postman or any other API testing tool. For Postman, y
 ### Postman Collection
 
 1. Download the Postman collection:
- ```bash
-   apollo schema:download --endpoint=http://localhost:4000/graphql movies-api.json
-   ```
+
+```bash
+  apollo schema:download --endpoint=http://localhost:4000/graphql movies-api.json
+```
+
 2. Open Postman.
 3. Go to "Import" and select the downloaded collection file.
 4. You can now test the API endpoints directly from Postman.

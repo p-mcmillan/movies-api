@@ -8,9 +8,12 @@ export async function up(knex: Knex): Promise<void> {
     table.string("Year");
     table.string("Rated");
     table.string("Runtime"); 
-    table.text("Plot"); 
+    table.string("Genre"); //added
+    table.string("Actors"); //added
+    table.text("Plot");
+    table.string("Poster");  //added
     table.string("imdbRating"); 
-    table.string("imdbID").notNullable().primary();  // Fixed the primary key definition
+    table.string("imdbID").notNullable().primary();
     table.integer('likes').defaultTo(0); 
     table.integer('dislikes').defaultTo(0);
     table.timestamp('created_at').defaultTo(knex.fn.now());

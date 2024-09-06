@@ -11,8 +11,6 @@ dotenv.config();
 
 const apikey = process.env.OMDB_API_KEY;
 
-//https://docs.nestjs.com/recipes/crud-generator
-
 @Resolver(() => Movie)
 export class MoviesResolver {
   constructor(private readonly moviesService: MoviesService) {}
@@ -54,9 +52,12 @@ export class MoviesResolver {
         const movieData = {
           Title: data.Title,
           Year: data.Year,
-          Rated: data.Rated,
+          Rated: data.Rated, 
           Runtime: data.Runtime,
+          Genre: data.Genre, //added
+          Actors: data.Actors, //added
           Plot: data.Plot,
+          Poster: data.Poster, //added
           imdbRating: data.imdbRating,
           imdbID: data.imdbID,
           likes: 0,
